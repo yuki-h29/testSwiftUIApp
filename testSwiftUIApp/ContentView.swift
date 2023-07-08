@@ -9,18 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                HStack {
+                    NavigationLink(destination: SecondView()) {
+                        Text("Go to Second View")
+                            .frame(width: 100, height: 30)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    Spacer()
+                }
+                Spacer()
+            }
+            .padding(.top, 10)
+            .padding(.leading, 10)
+            .navigationBarTitle("First View", displayMode: .inline)
         }
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct SecondView: View {
+    var body: some View {
+        Text("Second View")
+            .font(.largeTitle)
+            .navigationBarTitle("Second View", displayMode: .inline)
     }
 }
